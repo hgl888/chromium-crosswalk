@@ -106,11 +106,7 @@ public abstract class LockScreenTransportControl
                 // wallpaper (which we set to the poster of the current video) when the phone is
                 // locked. Also, once the minSdkVersion is updated in the manifest, get rid of the
                 // code for older SDK versions.
-                if (!enabled()) {
-                    return null;
-                } else if (android.os.Build.VERSION.SDK_INT < 16) {
-                    sInstance = new LockScreenTransportControlV14(context);
-                } else if (android.os.Build.VERSION.SDK_INT < 18) {
+                if (android.os.Build.VERSION.SDK_INT < 18) {
                     sInstance = new LockScreenTransportControlV16(context);
                 } else {
                     sInstance = new LockScreenTransportControlV18(context);
