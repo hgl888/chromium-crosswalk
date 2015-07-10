@@ -51,11 +51,9 @@ public class ChromeShellToolbar extends LinearLayout {
                     mIsStarted = false;
                 }
             } else {
-                if (!mIsStarted) {
-                    mProgressBar.start();
-                    mIsStarted = true;
-                }
-                mProgressBar.setProgress(mProgress / 100.0f);
+                mStopReloadButton.setImageResource(R.drawable.btn_toolbar_reload);
+                ApiCompatibilityUtils.postOnAnimationDelayed(ChromeShellToolbar.this,
+                        mClearProgressRunnable, COMPLETED_PROGRESS_TIMEOUT_MS);
             }
         }
     };
